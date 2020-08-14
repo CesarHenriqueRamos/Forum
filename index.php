@@ -7,12 +7,12 @@
 		$forumController->home();
 	});
 	//Listagem dos topicos.
-	Router::get('/?',function() use ($forumController){
-		$forumController->topicos();
+	Router::get('/?',function($arr) use ($forumController){
+		$forumController->topicos($arr[1]);
 	});
 	//Topico/Post single
-	Router::get('/?/?',function() use ($forumController){
-		$forumController->postSingle();
+	Router::get('/?/?',function($arr) use ($forumController){
+		$forumController->postSingle($arr[2]);
 	});
 	if(Router::isExecuted() == false){
 		die('Não Existe');
